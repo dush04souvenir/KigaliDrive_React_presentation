@@ -21,7 +21,7 @@ const slides = [
       "500+ Vehicles Listed across the platform",
       "10K+ Happy Customers with 98% Satisfaction Rate",
       "24/7 Customer Support for seamless experience",
-      "Multi-role system: Admin, Manager, Car Owner, Client",
+      "Granular Permission-Based System: Admin, Manager, etc.",
       "Email verification with secure 6-digit authentication",
       "Payment processing with 5% platform commission",
     ],
@@ -36,13 +36,13 @@ const slides = [
       { category: "Authentication", tech: "JWT + BCrypt + OAuth", icon: Lock },
       { category: "Frontend", tech: "React 18 + Redux Toolkit", icon: Package },
       { category: "Email", tech: "Gmail SMTP", icon: Mail },
-      { category: "Security", tech: "RBAC + Email 2FA", icon: Shield },
+      { category: "Security", tech: "PBAC + Email 2FA", icon: Shield },
     ],
   },
   {
     id: 4,
     type: "permission-matrix",
-    title: "Role-Based Access Control (RBAC)",
+    title: "Permission-Based Access Control (PBAC)",
     headers: ["Feature", "Admin", "Manager", "Owner", "Client"],
     rows: [
       { feature: "Self-Register", values: [false, false, true, true] },
@@ -74,7 +74,7 @@ const slides = [
     entities: [
       {
         name: "User",
-        fields: "Id, Email, PasswordHash, Role(1-4), IsEmailVerified, CreatedAt",
+        fields: "Id, Email, PasswordHash, Permissions(JSON), IsEmailVerified",
         relations: "1:N with Cars & Bookings",
       },
       {
@@ -215,7 +215,7 @@ const slides = [
       "✅ Live on Netlify: group004.netlify.app",
       "✅ GitHub Repository: github.com/Freedauce/Group4",
       "✅ Scalable .NET 8 architecture with Entity Framework Core",
-      "✅ Comprehensive role-based access control (RBAC)",
+      "✅ Granular Permission-Based Access Control (PBAC)",
       "✅ Professional email system with Gmail SMTP integration",
       "✅ Docker-ready with complete containerization support",
       "✅ MIT Licensed open-source project",
