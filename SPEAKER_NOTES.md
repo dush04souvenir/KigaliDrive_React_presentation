@@ -1,109 +1,129 @@
-# 🎤 Speaker Notes & Presentation Guide
+# 🎤 KigaliDrive Speaker Notes & Script
 
-This guide is designed to help you present the **KigaliDrive** project confidently, explaining complex technical terms and acknowledging team contributions.
-
----
-
-## 🔑 Crucial Concept: RBAC vs. PBAC
-**Requirement**: Use **PBAC** (Permission-Based Access Control).
-
-### ❌ What is RBAC? (Old Way)
-*   **Definition**: Role-Based Access Control.
-*   **Logic**: "I am a **Manager**, therefore I can delete users."
-*   **Limitation**: If you want a specific Manager to *not* delete users, you have to create a new role (e.g., "Junior Manager"). It gets rigid.
-
-### ✅ What is PBAC? (Our Way)
-*   **Definition**: **Permission**-Based Access Control.
-*   **Logic**: "I have the **'User.Delete'** permission, therefore I can delete users."
-*   **Advantage**: It's granular. A user can have the "Manager" title but specific permissions can be added or removed individually (e.g., `CanApproveCars`, `CanBoookRides`).
-*   **In Code**: We check `if (user.HasPermission("Car.Create"))` instead of `if (user.Role == "Admin")`.
+## 👥 The Team & Roles
+*   **Freedaouce (Team Rep)**: Database & Data Layer Lead
+*   **Danny**: Backend API & Business Logic
+*   **Souvenir**: Frontend State Management & Routing
+*   **Gerry**: Frontend UI & Design
+*   **Delice**: UI Design & Branch Management (Assisting Gerry)
 
 ---
 
-## 🏗️ Technical Glossary (Cheat Sheet)
+## 📅 Presentation Flow
 
-| Term | Full Name | How We Used It | Simple Explanation |
-| :--- | :--- | :--- | :--- |
-| **JWT** | JSON Web Token | **Authentication** | A secure digital "badge" given to the user after login. They show this badge (in the API header) to prove who they are for every request. Stateless (server doesn't need to remember it). |
-| **BCrypt** | BCrypt Hashing | **Security** | We NEVER store actual passwords. We run the password through a mathematical function (BCrypt) to turn it into gibberish (hash). We compare hashes to log in. |
-| **EF Core** | Entity Framework Core | **Database** | Our tool to talk to the database using C# code instead of writing raw SQL queries. |
-| **SMTP** | Simple Mail Transfer Protocol | **Email** | The standard "language" for sending emails. We configured Gmail's SMTP server to send verification codes. |
-| **Docker** | Docker Containers | **DevOps** | A "box" that contains our app and everything it needs to run. It ensures the app runs the same on Freedauce's laptop as it does on the server. |
-| **Nginx** | Nginx | **Web Server** | A high-performance gatekeeper that sits in front of our app, serving the static frontend files and directing traffic. |
+### 🎤 Speaker: Freedaouce (Team Rep)
+**Slide 1: Title Slide**
+"Good Morning. We are Team Group 4, and this is **KigaliDrive**—Rwanda's Premier Car Rental Platform.
+This presentation documents our **Architecture & Engineering** process using ASP.NET Core 8.0 and React.
+I am Freedaouce, the team representative."
+*(Briefly introduce the team roles as listed above).*
 
----
+**Slide 2: Project Overview**
+"KigaliDrive is a specific solution to the car rental fragmentation in Kigali.
+It is a **multi-tenant platform** serving 4 distinct roles: Admin, Manager, Car Owners, and Clients.
+Our key features include comprehensive Car Management, a Booking & Payment Engine, and a robust Notification System."
 
-## 👥 Team Contributions (Who did what)
+**Slide 3: Technology Stack**
+"We chose a modern, scalable stack:
+*   **Backend**: ASP.NET Core 8.0 for high performance.
+*   **Database**: SQL Server (Production) / SQLite (Dev) managed via Entity Framework Core.
+*   **Frontend**: React 18 for a dynamic user interface.
+*   **Security**: JWT for stateless authentication."
 
-Use this to answer questions like *"Who worked on the database?"*
+**Slide 4: System Architecture**
+"We implemented a **Layered Architecture** pattern to ensure scalability.
+*   **Controllers**: Handle HTTP requests.
+*   **Services**: Encapsulate business logic.
+*   **Data Layer**: Manages database interaction.
+This separation allows us to maintain and test each part independently."
 
-### 🔵 Freedauce: Database & Data Layer
-*   **Focus**: The foundation.
-*   **Key Contribution**: Designed the SQLite schema, set up Entity Framework Core, and handled the `User` and `Car` relationships.
-*   **PBAC Role**: Designed the table structure to store Permissions as JSON or distinct records.
+**Slide 5: Database Design**
+"Our Data Layer is built on 5 core entities:
+*   **User**: The central actor (with Identity).
+*   **Car**: The asset being rented.
+*   **Booking**: The transaction linking User and Car.
+*   **Payment**: The financial record.
+*   **Notification**: The communication log."
 
-### 🟣 Danny: Backend API Layer
-*   **Focus**: The Logic.
-*   **Key Contribution**: Built the .NET 8 Web API Controllers (`AuthController`, `CarsController`).
-*   **Key Tech**: Implemented the JWT generation logic and the Email Service for verification codes.
+**Slide 6: Entity Relationships**
+"We enforced strict referential integrity:
+*   **User ↔ Cars**: One-to-Many (One owner, multiple cars).
+*   **User ↔ Bookings**: One-to-Many (One client, multiple trips).
+*   **Booking ↔ Payment**: One-to-One (Each booking has one payment status)."
 
-### 🟢 Souvenir: Frontend State & Routing
-*   **Focus**: The Wiring.
-*   **Key Contribution**: Connected React to the API. Managed the state (is the user logged in?) and handled the complicated routing (redirecting unverified users).
-
-### 🟠 Gerry: Frontend UI/Design
-*   **Focus**: The User Experience.
-*   **Key Contribution**: Created the beautiful glassmorphism design, the responsive slides, and the realistic car animations.
-
-### 🔴 Delice: UI Design & Branch Management
-*   **Focus**: Visual Consistency & Code Stability.
-*   **Key Contribution**: Co-designed the UI elements and managed the **Git Workflow** (Pull Requests, Merges). She ensured that no conflicts broke the build during development.
-
----
-
-
----
-
-## 📅 Presentation Agenda & Assignments (19 Slides)
-*Everyone presents their own "Spotlight Slide". The rest are divided by expertise.*
-
-### 🎨 Part 1: Vision & Results (Gerry & Delice)
-*   **Slide 1: Title & Hook** - "Welcome to KigaliDrive." (Gerry)
-*   **Slide 2: Executive Summary** - "What problem are we solving?" (Delice)
-*   **Slide 10: Key Features** - Showcasing the beautiful feature set. (Gerry)
-*   **Slide 18: Platform Metrics** - The results of the good UX. (Delice)
-
-### 🔐 Part 2: Security & Backend (Danny)
-*   **Slide 3: Tech Stack** - Explain the .NET/Security choices.
-*   **Slide 4: PBAC Matrix** - Explain why Permissions > Roles.
-*   **Slide 7: Email System** - Explain SMTP integration.
-*   **Slide 9: API Endpoints** - Walk through the Controllers.
-
-### 💾 Part 3: Infrastructure (Freedauce)
-*   **Slide 6: Database** - Explain Schema and EF Core.
-*   **Slide 11: Deployment** - Explain Docker Containers.
-
-### ⚡ Part 4: Frontend Logic (Souvenir)
-*   **Slide 5: Auth Flow** - Explain client-side verification state.
-*   **Slide 8: User Workflow** - Walk through the seamless journey.
-*   **Slide 19: Conclusion** - Future roadmap.
-
-### 🌟 Part 5: The Team Spotlights (Everyone)
-*   **Slide 12: Team Overview** - Quick Intro.
-*   **Slide 13: Freedauce** - Presents Database/Infra contributions.
-*   **Slide 14: Danny** - Presents Backend/Security contributions.
-*   **Slide 15: Souvenir** - Presents Frontend Logic contributions.
-*   **Slide 16: Gerry** - Presents UI/Design contributions.
-*   **Slide 17: Delice** - Presents Branch Management contributions.
+**Slide 7: ApplicationDbContext**
+"The `ApplicationDbContext` is our central data access point.
+It uses the **Fluent API** to enforce constraints like unique Emails and License Plates.
+It also auto-detects the provider, switching seamlessly between SQL Server and SQLite."
 
 ---
 
-## 📝 Slide-by-Slide Quick Tips
+### 🎤 Speaker: Danny
+**Slide 8: Backend API Structure**
+"Moving to the Backend Logic. We structured our solution into clear logical folders:
+*   **Controllers** for endpoints.
+*   **Services** for logic.
+*   **DTOs** to shape data coming in and out."
 
-*   **Slide 4 (Permission Matrix)**: *Do not say "Roles".* Say "We defined sets of **permissions** commonly associated with these personas, but the system checks the specific permission column, not the role name."
-*   **Slide 5 (Auth Flow)**: Mention that the **Verification Code** is the key security step preventing bot accounts.
-*   **Slide 10 (Deployment)**: Highlight **Docker Compose**. It brings up the Frontend, Backend, and Database all at once with one command.
+**Slide 9: Service Layer**
+"The Service Layer is critical. It keeps our controllers 'thin'.
+It contains all the business rules—like checking if a car is available before allowing a booking. This decouples our UI from the underlying logic."
+
+**Slide 10: Booking Workflow**
+"Here is the logic for a Booking:
+1.  **Validate**: Is the car free?
+2.  **Calculate**: Price * Days.
+3.  **Save**: Write to DB.
+4.  **Notify**: Trigger emails."
+
+**Slide 11: Authentication & Authorization**
+"Security is paramount. We use **JWT Authentication** for stateless, secure access.
+We implement **Role-Based Access Control (RBAC)** to ensure an Admin can do things a Client cannot."
 
 ---
 
-*Good luck with the presentation! You have a solid, modern architecture here.*
+### 🎤 Speaker: Souvenir
+**Slide 12: Frontend Architecture**
+"Good morning/afternoon. My name is Souvenir, and I worked on the frontend state management and routing for KigaliDrive.
+Our frontend is built using React and follows a component-based architecture.
+Each feature of the application is broken down into reusable components, which makes the code easier to maintain and scale.
+We also clearly separate UI components from application logic, so that presentation and data handling are not mixed.
+This approach improves readability, reusability, and overall performance of the frontend."
+
+**Slide 13: State Management**
+"This slide focuses on how state is managed in the frontend.
+We manage authentication state to keep track of the logged-in user and their role.
+We also manage booking and car data so that information is shared consistently across different components.
+In addition, we handle loading states and error states to give users proper feedback during API requests.
+This ensures a smooth and reliable user experience throughout the application."
+
+**Slide 14: Routing & Access Control**
+"Routing in KigaliDrive is designed to be secure and user-friendly.
+We separate public routes, such as login and registration, from protected routes like dashboards and bookings.
+Protected routes are only accessible to authenticated users.
+We also implement role-based navigation, so users only see pages that match their assigned roles.
+This improves security and prevents unauthorized access on the frontend."
+
+---
+
+### 🎤 Speaker: Gerry (with Delice)
+**Slide 15: UI/UX Design Goals**
+"Hello, my name is Gerry, and together with **Delice**, we worked on the user interface and design of the KigaliDrive frontend.
+Our main UI and UX goals were to keep the application clean, responsive, and easy to use.
+We focused on simplicity so users can navigate the system without confusion.
+Responsiveness was also important to ensure the application works well on different screen sizes."
+
+**Slide 16: UI Implementation**
+"This slide shows how the UI design was implemented.
+We designed dashboards to give users a clear overview of important information.
+Forms were designed to be simple and intuitive, with clear labels and validation.
+We also used tables and cards to display data in a structured and readable way.
+Overall, the layout is responsive, ensuring a consistent experience across devices."
+
+---
+
+### 🎤 Speaker: Freedaouce (All)
+**Slide 17: Request Flow Example**
+"To summarize, here is the full lifecycle of a Request:
+From the **Client's click**, through **Souvenir's Routes**, hitting **Danny's Controller & Services**, validated by **My Database**, and returning a Success Message to **Gerry's UI**.
+Thank you for listening."
