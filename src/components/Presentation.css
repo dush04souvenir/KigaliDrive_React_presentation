@@ -1208,3 +1208,96 @@
   color: #64748b;
   font-size: 2rem;
 }
+/* Contributor Detail Slide */
+.contributor-slide {
+  text-align: left;
+  align-items: flex-start;
+  padding: 3rem 4rem;
+}
+
+.contributor-header {
+  margin-bottom: 2rem;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.contributor-name {
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.contributor-role {
+  font-size: 1.5rem;
+  color: #94a3b8;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  animation: slideInLeft 1s ease-out;
+}
+
+.contributor-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  height: 100%;
+}
+
+.quote-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid; 
+  padding: 2rem;
+  border-radius: 0 1rem 1rem 0;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1.2s ease-out;
+  height: fit-content;
+}
+
+.contributions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contribution-item {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  opacity: 0;
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+.contribution-item:nth-child(1) { animation-delay: 0.4s; }
+.contribution-item:nth-child(2) { animation-delay: 0.6s; }
+.contribution-item:nth-child(3) { animation-delay: 0.8s; }
+.contribution-item:nth-child(4) { animation-delay: 1.0s; }
+
+.tech-stack-mini {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.mini-tech-icon {
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  opacity: 0;
+  animation: bounceIn 0.5s ease-out forwards;
+}
+
+.mini-tech-icon:nth-child(1) { animation-delay: 1.2s; }
+.mini-tech-icon:nth-child(2) { animation-delay: 1.3s; }
+.mini-tech-icon:nth-child(3) { animation-delay: 1.4s; }
+

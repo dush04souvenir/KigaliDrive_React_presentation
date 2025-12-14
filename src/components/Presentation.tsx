@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { ChevronLeft, ChevronRight, Car, Shield, Database, Server, Mail, Lock, Package, Maximize, Minimize } from "lucide-react"
+import { ChevronLeft, ChevronRight, Car, Shield, Database, Server, Mail, Lock, Package, Maximize, Minimize, Code, Layout, GitBranch, Palette, Eye, CheckCircle, Box } from "lucide-react"
 import "./Presentation.css"
 
 
@@ -195,6 +195,81 @@ const slides = [
       { name: "Gerry", role: "Frontend UI/Design", github: "@Gerry-13", color: "#f59e0b" },
       { name: "Delice", role: "UI Design & Branch Manager", github: "@Dellyce", color: "#e11d48" },
     ],
+  },
+  {
+    id: 101,
+    type: "contributor-detail",
+    name: "Freedauce",
+    role: "Database & Data Layer",
+    quote: "Data integrity is the bedrock of user trust.",
+    contributions: [
+      "Designed the RBAC/PBAC Schema with EF Core",
+      "Orchestrated Docker Multi-Container Setup",
+      "Optimized SQLite Database Performance",
+      "Implemented Data Persistence Layer",
+    ],
+    techStack: [Database, Server, Box],
+    color: "#3b82f6",
+  },
+  {
+    id: 102,
+    type: "contributor-detail",
+    name: "Danny",
+    role: "Backend API Layer",
+    quote: "Security is not a feature, it is a state of mind.",
+    contributions: [
+      "Architected .NET 8 Web API Controllers",
+      "Implemented JWT & Stateless Auth",
+      "Built SMTP Email Notification Service",
+      "Enforced Security Headers & Validation",
+    ],
+    techStack: [Lock, Shield, Server],
+    color: "#8b5cf6",
+  },
+  {
+    id: 103,
+    type: "contributor-detail",
+    name: "Souvenir",
+    role: "Frontend State & Routing",
+    quote: "A great UI is useless without a robust state.",
+    contributions: [
+      "Built Global State Management System",
+      "Engineered Dynamic RBAC Routing",
+      "Created Secure Route Guards (Middleware)",
+      "Developed Centralized API Service Layer",
+    ],
+    techStack: [Code, Layout, GitBranch],
+    color: "#10b981",
+  },
+  {
+    id: 104,
+    type: "contributor-detail",
+    name: "Gerry",
+    role: "Frontend UI/Design",
+    quote: "Design is Validated Intelligence made visible.",
+    contributions: [
+      "Created Glassmorphism Design System",
+      "Built Responsive Animated Components",
+      "Designed Interactive Slide Transitions",
+      "Ensured Mobile & Desktop Compatibility",
+    ],
+    techStack: [Palette, Eye, Layout],
+    color: "#f59e0b",
+  },
+  {
+    id: 105,
+    type: "contributor-detail",
+    name: "Delice",
+    role: "UI Design & Branch Manager",
+    quote: "Consistency in code mirrors consistency in design.",
+    contributions: [
+      "Managed Git Workflow & PRs",
+      "Enforced UI Consistency Standards",
+      "Resolved Merge Conflicts",
+      "Co-Designed Core Dashboard Layouts",
+    ],
+    techStack: [GitBranch, CheckCircle, Palette],
+    color: "#e11d48",
   },
   {
     id: 12,
@@ -549,6 +624,41 @@ export default function Presentation() {
                   <code className="team-github">{member.github}</code>
                 </div>
               ))}
+            </div>
+          </div>
+        )}
+
+        {slide.type === "contributor-detail" && (
+          <div className="slide-content contributor-slide">
+            <div className="contributor-header" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
+              <h1 className="contributor-name" style={{ backgroundImage: `linear-gradient(135deg, #fff 0%, ${slide.color} 100%)` }}>
+                {slide.name}
+              </h1>
+              <p className="contributor-role" style={{ color: slide.color }}>{slide.role}</p>
+            </div>
+            <div className="contributor-body">
+              <div className="left-col">
+                <blockquote className="quote-card" style={{ borderColor: slide.color }}>
+                  "{slide.quote}"
+                </blockquote>
+                <div className="tech-stack-mini">
+                  {slide.techStack?.map((Icon, i) => (
+                    <div key={i} className="mini-tech-icon" style={{ backgroundColor: slide.color }}>
+                      <Icon size={20} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="right-col">
+                <ul className="contributions-list">
+                  {slide.contributions?.map((item, i) => (
+                    <li key={i} className="contribution-item">
+                      <CheckCircle size={20} color={slide.color} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         )}
