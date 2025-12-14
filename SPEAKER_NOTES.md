@@ -61,30 +61,40 @@ Use this to answer questions like *"Who worked on the database?"*
 
 ---
 
-## 📅 Presentation Agenda & Slide Assignments
-*Suggested breakdown based on your technical contributions.*
 
-### 🎨 Part 1: Intro & UX (Gerry & Delice)
+---
+
+## 📅 Presentation Agenda & Assignments (19 Slides)
+*Everyone presents their own "Spotlight Slide". The rest are divided by expertise.*
+
+### 🎨 Part 1: Vision & Results (Gerry & Delice)
 *   **Slide 1: Title & Hook** - "Welcome to KigaliDrive." (Gerry)
 *   **Slide 2: Executive Summary** - "What problem are we solving?" (Delice)
-*   **Slide 9: Key Features** - Showcasing the beautiful feature set. (Gerry)
-*   **Slide 12: Platform Metrics** - The results of the good UX. (Delice)
+*   **Slide 10: Key Features** - Showcasing the beautiful feature set. (Gerry)
+*   **Slide 18: Platform Metrics** - The results of the good UX. (Delice)
 
-### 🔐 Part 2: Security & Backend Logic (Danny)
+### 🔐 Part 2: Security & Backend (Danny)
 *   **Slide 3: Tech Stack** - Explain the .NET/Security choices.
-*   **Slide 4: PBAC Matrix** - Explain why we chose Permissions over simple Roles.
-*   **Slide 8: API Endpoints** - Walk through the Controller structure.
-*   **Slide 99: Email System** - Explain the SMTP integration.
+*   **Slide 4: PBAC Matrix** - Explain why Permissions > Roles.
+*   **Slide 7: Email System** - Explain SMTP integration.
+*   **Slide 9: API Endpoints** - Walk through the Controllers.
 
-### 💾 Part 3: Data & Infrastructure (Freedauce)
-*   **Slide 6: Database Architecture** - Explain the Schema and EF Core.
-*   **Slide 10: Deployment Architecture** - Explain Docker, Nginx, and Containers.
-*   **Slide 11: Team** - Introduce the squad (or everyone introduces themselves).
+### 💾 Part 3: Infrastructure (Freedauce)
+*   **Slide 6: Database** - Explain Schema and EF Core.
+*   **Slide 11: Deployment** - Explain Docker Containers.
 
-### ⚡ Part 4: Frontend Logic & Integration (Souvenir)
-*   **Slide 5: Auth & Verification Flow** - Explain the client-side state/routing challenges.
-*   **Slide 7: End-to-End Workflow** - Walk through the seamless user journey.
-*   **Slide 13: Conclusion** - Future roadmap and closing validation.
+### ⚡ Part 4: Frontend Logic (Souvenir)
+*   **Slide 5: Auth Flow** - Explain client-side verification state.
+*   **Slide 8: User Workflow** - Walk through the seamless journey.
+*   **Slide 19: Conclusion** - Future roadmap.
+
+### 🌟 Part 5: The Team Spotlights (Everyone)
+*   **Slide 12: Team Overview** - Quick Intro.
+*   **Slide 13: Freedauce** - Presents Database/Infra contributions.
+*   **Slide 14: Danny** - Presents Backend/Security contributions.
+*   **Slide 15: Souvenir** - Presents Frontend Logic contributions.
+*   **Slide 16: Gerry** - Presents UI/Design contributions.
+*   **Slide 17: Delice** - Presents Branch Management contributions.
 
 ---
 
