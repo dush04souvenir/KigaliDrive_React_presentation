@@ -55,6 +55,37 @@ Use this to answer questions like *"Who worked on the database?"*
 *   **Focus**: The User Experience.
 *   **Key Contribution**: Created the beautiful glassmorphism design, the responsive slides, and the realistic car animations.
 
+### 🔴 Delice: UI Design & Branch Management
+*   **Focus**: Visual Consistency & Code Stability.
+*   **Key Contribution**: Co-designed the UI elements and managed the **Git Workflow** (Pull Requests, Merges). She ensured that no conflicts broke the build during development.
+
+---
+
+## 📅 Presentation Agenda & Slide Assignments
+*Suggested breakdown based on your technical contributions.*
+
+### 🎨 Part 1: Intro & UX (Gerry & Delice)
+*   **Slide 1: Title & Hook** - "Welcome to KigaliDrive." (Gerry)
+*   **Slide 2: Executive Summary** - "What problem are we solving?" (Delice)
+*   **Slide 9: Key Features** - Showcasing the beautiful feature set. (Gerry)
+*   **Slide 12: Platform Metrics** - The results of the good UX. (Delice)
+
+### 🔐 Part 2: Security & Backend Logic (Danny)
+*   **Slide 3: Tech Stack** - Explain the .NET/Security choices.
+*   **Slide 4: PBAC Matrix** - Explain why we chose Permissions over simple Roles.
+*   **Slide 8: API Endpoints** - Walk through the Controller structure.
+*   **Slide 99: Email System** - Explain the SMTP integration.
+
+### 💾 Part 3: Data & Infrastructure (Freedauce)
+*   **Slide 6: Database Architecture** - Explain the Schema and EF Core.
+*   **Slide 10: Deployment Architecture** - Explain Docker, Nginx, and Containers.
+*   **Slide 11: Team** - Introduce the squad (or everyone introduces themselves).
+
+### ⚡ Part 4: Frontend Logic & Integration (Souvenir)
+*   **Slide 5: Auth & Verification Flow** - Explain the client-side state/routing challenges.
+*   **Slide 7: End-to-End Workflow** - Walk through the seamless user journey.
+*   **Slide 13: Conclusion** - Future roadmap and closing validation.
+
 ---
 
 ## 📝 Slide-by-Slide Quick Tips

@@ -193,6 +193,7 @@ const slides = [
       { name: "Danny", role: "Backend API Layer", github: "@mdanny11", color: "#8b5cf6" },
       { name: "Souvenir", role: "Frontend State & Routing", github: "@dush04souvenir", color: "#10b981" },
       { name: "Gerry", role: "Frontend UI/Design", github: "@Gerry-13", color: "#f59e0b" },
+      { name: "Delice", role: "UI Design & Branch Manager", github: "@Dellyce", color: "#e11d48" },
     ],
   },
   {
